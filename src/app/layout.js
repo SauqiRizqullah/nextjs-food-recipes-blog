@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Bebas_Neue, Roboto, Poppins, Vampiro_One } from "next/font/google";
+import { Bebas_Neue, Roboto, Poppins, Vampiro_One} from "next/font/google";
 import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import localFont from 'next/font/local'
 
 const geistSans = Geist({
@@ -53,14 +54,30 @@ const dramaRegular = localFont({
   variable: '--font-drama-regular'
 })
 
+const bitter = localFont({
+  src: '../../public/fonts/Bitter.woff2',
+  variable: '--font-bitter',
+});
+
+const arvo = localFont({
+  src: '../../public/fonts/Arvo.woff2',
+  variable: '--font-arvo',
+});
+
+const domaineDisplay = localFont({
+  src: '../../public/fonts/Domaine-Display.woff2',
+  variable: '--font-domaine-display',
+});
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${bebasNeue.variable} ${poppins.variable} ${vampiro.variable} ${consulSans.variable} ${dramaRegular.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${bebasNeue.variable} ${poppins.variable} ${vampiro.variable} ${consulSans.variable} ${dramaRegular.variable} ${domaineDisplay.variable} ${bitter.variable} ${arvo.variable} antialiased`}
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

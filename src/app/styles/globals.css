@@ -51,6 +51,18 @@ body {
 .drama {
   font-family: 'Drama Regular', serif;
 }
+
+.domaine {
+  font-family: var(--font-domaine-display);
+}
+
+.arvo {
+  font-family: var(--font-arvo), serif;
+}
+
+.bitter {
+  font-family: var(--font-bitter);
+}
 /* 
 1. 23 agustus 2024 150.000
 2. 9 september 2024 300.000
