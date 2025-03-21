@@ -1,48 +1,52 @@
 import Image from "next/image";
+import fs from "fs";
+import path from "path";
 
 export default function Home() {
+
+  const filePath = path.join(process.cwd(), "data", "home.json")
+  const jsonData = fs.readFileSync(filePath, "utf-8")
+  const data = JSON.parse(jsonData)
+
   return (
-  <main>
-    <section className="grid grid-cols-6 bg-gray-200 mt-20">
-      {/* Gambar */}
-      <section className="col-span-2 flex justify-items-end">
-        <Image src="/img/home-food.jpeg" alt="home-food" width={374} height={560}/>
-      </section>
-      {/* Deskripsi */}
-      <section className="col-span-4">
-        <section className="flex flex-col justify-around pt-10 mr-48 gap-5">
-        
-        <span className="domaine font-bold text-5xl text-recipe-bold">
-           
-            Welcome to QI~FOOD
-        
-        </span>
-        
-        <span className="arvo text-gray-950 font-semibold">
-          Let's Talk Food
-        
-        </span>
-        
-        <span className="bitter text-gray-500">
-        
-          Well, we hope that’s why you’re here. Our recipes are designed for real, actual, every day life, and we try to focus on real foods and healthy recipes
-          (which honestly means a lot of different things to us, including the perfect chocolate chip cookie and cheese on cheese on cheese, because health is all about balance, right?).
-        
-        </span>
-        
-        <span className="bitter text-gray-500">
-        This is the place to find those recipes — everything from our most popular, to meal prep, to Instant Pot recipes, or if you just, like, have some sad greens in your fridge to use up and you need some inspiration.
-        
-        </span>
-        
-        <span className="bitter text-gray-500">
-        You’re here! Have fun. We hope you find something (many things) you love.
-        
-        </span>
+    <main>
+      <section className="bg-gray-200 mt-20">
+        <section className="grid grid-cols-7 gap-4 mx-20">
+          {/* Gambar */}
+          <section className="col-span-3 flex justify-end">
+            <Image
+              src="/img/home-food.jpeg"
+              alt="home-food"
+              width={374}
+              height={560}
+            />
+          </section>
+          {/* Deskripsi */}
+          <section className="col-span-4">
+            <section className="flex flex-col justify-around pl-3 pt-10 mr-24 gap-5">
+              <span className="domaine font-bold text-4xl text-recipe-bold">
+                {data.greetings}
+              </span>
+
+              <span className="arvo text-gray-950 font-semibold text-sm">
+                {data.persuade}
+              </span>
+
+              <span className="bitter text-gray-500 text-sm">
+                {data.firstLine}
+              </span>
+
+              <span className="bitter text-gray-500 text-sm">
+                {data.secondLine}
+              </span>
+
+              <span className="bitter text-gray-500 text-sm">
+                {data.thirdLine}
+              </span>
+            </section>
+          </section>
         </section>
-        
       </section>
-    </section>
-  </main>
-  )
+    </main>
+  );
 }

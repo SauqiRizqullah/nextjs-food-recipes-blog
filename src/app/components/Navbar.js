@@ -57,7 +57,7 @@ export default function Navbar(){
                 </li>     
             </ul>
         </nav>
-        <div className="bg-blue-950 h-11 w-full">
+        <div className= "h-11 w-full">
 
         </div>
         </div>
